@@ -35,15 +35,12 @@ interface Topic {
 }
 
 export default function DSAPage() {
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, text: 'Complete Striver A2Z DSA Sheet', completed: false, category: 'sheet', difficulty: 'medium', estimatedTime: '3 months' },
-    { id: 2, text: 'Solve 100 LeetCode Easy Problems', completed: false, category: 'practice', difficulty: 'easy', estimatedTime: '1 month' },
-    { id: 3, text: 'Master Dynamic Programming Patterns', completed: false, category: 'learn', difficulty: 'hard', estimatedTime: '2 months' },
-    { id: 4, text: 'Practice Mock Interviews', completed: false, category: 'practice', difficulty: 'medium', estimatedTime: '2 weeks' },
-    { id: 5, text: 'Learn Time & Space Complexity Analysis', completed: false, category: 'learn', difficulty: 'easy', estimatedTime: '1 week' },
-    { id: 6, text: 'Review Common Interview Patterns', completed: false, category: 'tips', difficulty: 'medium', estimatedTime: '3 weeks' },
-  ]);
-
+// Update the initial tasks to be more realistic
+const [tasks, setTasks] = useState<Task[]>([
+  { id: 1, text: 'Master Sliding Window Pattern', completed: false, category: 'learn', difficulty: 'medium', estimatedTime: '3 days' },
+  { id: 2, text: 'Solve 50 Tree problems on LeetCode', completed: false, category: 'practice', difficulty: 'hard', estimatedTime: '1 week' },
+  { id: 3, text: 'Complete Bit Manipulation (Striver)', completed: false, category: 'sheet', difficulty: 'easy', estimatedTime: '2 days' },
+]);
   const [newTask, setNewTask] = useState('');
   const [showAddTask, setShowAddTask] = useState(false);
   const [filter, setFilter] = useState<'all' | 'sheet' | 'practice' | 'learn' | 'tips'>('all');
@@ -58,14 +55,16 @@ export default function DSAPage() {
     { name: 'Dynamic Programming', problems: 60, completed: 25, icon: <FaLightbulb />, color: 'from-indigo-500 to-purple-500' },
   ];
 
-  const resources: Resource[] = [
-    { title: 'LeetCode', url: 'https://leetcode.com', icon: <FaCode />, color: 'from-orange-500 to-yellow-500' },
-    { title: 'Striver A2Z Sheet', url: '#', icon: <FaBook />, color: 'from-blue-500 to-cyan-500' },
-    { title: 'NeetCode', url: 'https://neetcode.io', icon: <FaYoutube />, color: 'from-red-500 to-pink-500' },
-    { title: 'GitHub DSA Repos', url: '#', icon: <FaGithub />, color: 'from-gray-700 to-gray-900' },
-    { title: 'GeeksforGeeks', url: 'https://geeksforgeeks.org', icon: <FaGlobe />, color: 'from-green-500 to-teal-500' },
-    { title: 'CodeForces', url: 'https://codeforces.com', icon: <FaTrophy />, color: 'from-indigo-500 to-purple-500' },
-  ];
+  // Inside DSAPage component
+const resources: Resource[] = [
+  { title: 'Striver A2Z Sheet', url: 'https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/', icon: <FaBook />, color: 'from-blue-500 to-cyan-500' },
+  { title: 'LeetCode 75', url: 'https://leetcode.com/studyplan/leetcode-75/', icon: <FaCode />, color: 'from-orange-500 to-yellow-500' },
+  { title: 'Love Babbar Sheet', url: 'https://www.geeksforgeeks.org/dsa-sheet-by-love-babbar/', icon: <FaFire />, color: 'from-red-500 to-orange-600' },
+  { title: 'NeetCode Roadmap', url: 'https://neetcode.io/roadmap', icon: <FaChartLine />, color: 'from-green-500 to-emerald-600' },
+  { title: 'InterviewBit', url: 'https://www.interviewbit.com/practice/', icon: <FaTrophy />, color: 'from-indigo-500 to-purple-500' },
+  { title: 'CSES Problem Set', url: 'https://cses.fi/problemset/', icon: <FaGlobe />, color: 'from-gray-700 to-gray-900' },
+];
+
 
   const handleToggle = (id: number) => {
     setTasks(tasks.map(task =>

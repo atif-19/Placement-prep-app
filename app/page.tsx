@@ -243,7 +243,7 @@ export default function Home() {
             <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-800 flex items-center mb-4">
                 <FaCalendarAlt className="mr-2 text-blue-500" />
-                Today's Goals
+                Today`&apos;`s Goals
               </h2>
               <div className="space-y-3">
                 {[
